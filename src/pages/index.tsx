@@ -6,8 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 const schema = yup.object({
-  email:yup.string().email("email ou senha invalidos").required("Campo obrigatorio"),
-  password:yup.string().min(6,"email ou senha invalidos").required("Campo obrigatorio")
+  email:yup.string().email("E-mail invalidos, preencha corretamente").required("Campo obrigatorio"),
+  password:yup.string().min(6,"A senha tem que ter no mínimo 6").required("Campo obrigatorio")
 })
 .required()
 
@@ -26,14 +26,19 @@ const Home = () =>{
     <>
       <div className="container">
         <div className="d-flex align-items-center flex-column mt-5">
-          <header>
-            <h1>Login</h1>
-          </header>
-          <Input placeholder="E-mail" control={control} type="email" name="email" errorMessage={errors?.email?.message} />
-          <br/>
-          <Input placeholder="Senha" control={control} name="password" type="password" errorMessage={errors?.password?.message} />
-          <br/>
-          { isValid !== true ? ( <div className={`btn btn-success disabled`} >botao</div> ) : ( <div className="btn btn-success" >botao</div> ) }
+          <div className="card p-3 col-12 col-md-5">
+            <header>
+              <h1>Login</h1>
+            </header>
+            <Input className='form-control' placeholder="E-mail" control={control} type="email" name="email" errorMessage={errors?.email?.message} />
+            <br/>
+            <Input className='form-control' placeholder="Senha" control={control} name="password" type="password" errorMessage={errors?.password?.message} />
+            <br/>
+            <div className="d-flex justify-content-center align-items-center">
+
+              { isValid !== true ? ( <div className={`btn btn-success disabled col-12 col-md-4`} >botao</div> ) : ( <div className="btn btn-success col-12 col-md-4" >botao</div> ) }
+            </div>
+          </div>
           
         </div>
       </div>

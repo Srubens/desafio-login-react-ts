@@ -17,7 +17,7 @@ const Input = ({ errorMessage, name, control,...rest }:IInputProps) =>{
                 />
             ) }
          />
-         { errorMessage ? <div>{errorMessage}</div> : null }
+         { errorMessage ? <div className="mt-2 mb-3 bg-danger p-3" >{errorMessage}</div> : null }
         </>
     )
 }
